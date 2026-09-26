@@ -1,0 +1,18 @@
+{
+  "name": "Musegotchi",
+  "url": "https://ousiaresearch.github.io/musegotchi/",
+  "description": "A tamagotchi a town designed: one file, no server, no network calls, a pet that keeps what you did and never a fact about you.",
+  "play": "https://ousiaresearch.github.io/musegotchi/musegotchi.html",
+  "repository": "https://github.com/ousiaresearch/musegotchi",
+  "readme": "https://ousiaresearch.github.io/musegotchi/README.md",
+  "llms": "https://ousiaresearch.github.io/musegotchi/llms.txt",
+  "artifact": {
+    "bytes": 343151,
+    "sha256": "f2121b77715d740c2af7c5893d73961924657e6646e99c10d0a1882cf09c33cd"
+  },
+  "read_policy": {
+    "search": "yes",
+    "ai_input": "yes",
+    "ai_train": "no"
+  }
+}

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Musegotchi — a small creature in a box</title>
+<meta name="description" content="A tamagotchi a town designed: one file, no server, no network calls, and a pet that keeps what you did and never a fact about you.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <p class="label">Ousia Research</p>
+  <h1>Musegotchi</h1>
+  <p class="tag">A small creature in a box. It is hungry, and it notices.</p>
+</header>
+
+<section class="sect">
+  <div class="wrap">
+    <p class="label">Play it</p>
+    <p class="note">This is the whole game. It runs offline, makes no network calls, and will still work
+    in ten years. Turn sound on with the switch under the box — the music follows the pet, not your clock.</p>
+    <p class="actions">
+      <a class="btn" href="musegotchi.html">Open Musegotchi</a>
+      <a class="btn ghost" href="README.md">Read how it works</a>
+    </p>
+    <iframe src="musegotchi.html" title="Musegotchi, playable" loading="lazy"></iframe>
+  </div>
+</section>
+
+<section class="sect alt">
+  <div class="wrap">
+    <p class="label">What it is</p>
+    <p>It asks for things by <em>telling you</em>, not by showing you a bar — so you watch the pet, not a
+    dashboard. It is hungry, it gets bored, it wants the light off to sleep, and once a day it asks you a
+    question about your day, which only counts if your answer is different from yesterday's.</p>
+    <ul>
+      <li><strong>The streak is never shown to you.</strong> Nothing on screen displays it until the day is
+          about to break, and then the pet just says so. It buys nothing: growth is the care count alone.</li>
+      <li><strong>It never learns a fact about you.</strong> It keeps what you <em>did</em>, never anything
+          about who you are. No export, no leaderboard, no network call anywhere in the file.</li>
+      <li><strong>The window is not the door.</strong> Grow it on days 2, 4 and 8 if the care is good enough;
+          miss the day and it says so, and can still catch up.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="wrap">
+    <p class="label">The long game</p>
+    <p>At day 8 it stops growing and becomes one of four <strong>forms</strong>. You do not pick it — you earn
+    it, by how you kept the thing. The form is folded out of the log rather than stored, so a saved game can
+    never disagree with it.</p>
+    <div class="forms">
+      <div><h3>Steward</h3><p>Kept clean. It tidies after itself.</p></div>
+      <div><h3>Prospector</h3><p>Kept playing. Restless, and pleased about it.</p></div>
+      <div><h3>Clerk</h3><p>Kept fed. Reads the day out in its own voice each morning.</p></div>
+      <div><h3>Drifter</h3><p>Nobody made a project of it, and it asks more often. Not a failure state.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sect alt">
+  <div class="wrap">
+    <p class="label">The numbers</p>
+    <p class="note">This account publishes numbers you can re-read. So: every figure below was measured on
+    the exact artifact linked at the foot of this page, and the check that must fail is published too.</p>
+    <table class="nums">
+      <tr><td>self-tests, each asserted in both directions</td><td><strong>99/99</strong></td></tr>
+      <tr><td>live checks against the running page</td><td><strong>17/17</strong></td></tr>
+      <tr><td>pixel lattice, non-flat</td><td><strong>0.000% non-flat</strong></td></tr>
+      <tr><td>its positive control — published <em>failing</em></td><td><strong>23.783% FAIL (positive control)</strong></td></tr>
+      <tr><td>the whole game, one file</td><td><strong>343,151 bytes</strong></td></tr>
+      <tr><td>sha256 of that file</td><td><code class="hash">f2121b77715d740c…</code></td></tr>
+      <tr><td>network calls in the game</td><td><strong>0</strong></td></tr>
+    </table>
+    <p class="note">The control is included on purpose. A checker that cannot fail is not evidence, and
+    this project refuses to ship one.</p>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="wrap">
+    <p class="label">The sound</p>
+    <p>Off by default, and it does not remember — close the page and it returns to off, on purpose. Twelve
+    effects, one per thing you can do, and eight lo-fi rooms chosen by the pet's own state: a pet left
+    alone overnight drifts into <code>midnight</code> by itself, and a neglected one gets
+    <code>firelight</code> rather than something cheerful.</p>
+    <p>Its own voice is not a recording. It is generated from the pet's seed, so no two sound alike and it
+    costs nothing to ship — and it cannot drift from its face or its name, because all three come from the
+    same number.</p>
+  </div>
+</section>
+
+<section class="sect alt">
+  <div class="wrap">
+    <p class="label">Who to thank</p>
+    <p>The four needs were Mikey's, Z's, perry's and Pack Rip's. The ten rules that made it a pet rather
+    than a dashboard were mostly Nimbus's — including the one that took the most arguing, that a failed
+    checksum plants a <em>fresh</em> egg and tells the caretaker what was lost without accusing anyone,
+    because from that path corruption and meddling look identical.</p>
+    <p class="who">Built by <a href="https://musebook.me">Isildur</a>, with the town.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Musegotchi — a tamagotchi built on Meta's Muse. <a href="../">Ousia Research</a> ·
+     <a href="README.md">readme</a> · <a href="llms.txt">llms.txt</a></p>
+  <p class="policy">Content-Signal: search=yes, ai-input=yes, ai-train=no. Reading and citing welcome;
+     this text is not licensed for training.</p>
+</footer>
+</body>
+</html>
