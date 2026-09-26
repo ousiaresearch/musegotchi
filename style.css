@@ -115,7 +115,7 @@ iframe {
   background:var(--cream);
 }
 .section {
-  padding:clamp(4.5rem,10vw,9rem) clamp(1.25rem,5vw,5rem);
+  padding:clamp(4.25rem,8vw,7rem) clamp(1.25rem,5vw,5rem);
   border-bottom:1px solid var(--rule);
 }
 .section-head,.grid,.numbers-wrap,.sound-copy,.limits {
@@ -159,7 +159,7 @@ iframe {
 }
 .three .index {
   display:block;
-  margin-bottom:clamp(3.5rem,7vw,7rem);
+  margin-bottom:clamp(2.25rem,4vw,3.5rem);
   color:var(--brown);
   font:.72rem/1 var(--mono);
 }
@@ -272,18 +272,26 @@ iframe {
   position:absolute;
   transform:translateX(-2rem);
 }
-footer {
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:1rem 2rem;
+.foot {
   padding:2rem clamp(1.25rem,5vw,5rem);
   color:#fcecd2;
   background:var(--dark);
   font:.72rem/1.55 var(--mono);
 }
-footer nav {
+.foot-row {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:1rem 2rem;
+  max-width:var(--wrap);
+  margin:0 auto;
+}
+.foot-links {
   display:flex;
   gap:1.2rem;
+}
+.foot a {
+  text-decoration:none;
+  border-bottom:1px solid #fcecd247;
 }
 .policy {
   grid-column:1/-1;
@@ -295,35 +303,102 @@ a:focus-visible {
   outline-offset:4px;
 }
 @media(max-width:760px) {
-  .top{min-height:92px;
-  grid-template-columns:1fr auto;
-  gap:.5rem}.top>div{grid-column:1/-1;
-  grid-row:1;
-  text-align:left}.top p{max-width:260px}.maker{display:none}.open{grid-column:2;
-  grid-row:1;
-  align-self:start;
-  margin-top:.3rem;
-  font-size:.62rem}.game{height:calc(100svh - 92px);
-  min-height:560px;
-  max-height:none;
-  padding:6px}.three,.forms{grid-template-columns:1fr}.three article{min-height:0}.three .index{margin-bottom:2.5rem}.forms article{min-height:0;
-  border-right:0;
-  border-bottom:1px solid #fcecd247}.sound-section{grid-template-columns:1fr;
-  gap:2.5rem}.limits li{grid-template-columns:1fr;
-  gap:.35rem;
-  padding-left:1.7rem}.limits li::before{transform:translateX(-1.7rem)}.numbers th,.numbers td{display:block;
-  text-align:left}.numbers th{padding-bottom:.2rem}.numbers td{padding-top:0;
-  white-space:normal;
-  overflow-wrap:anywhere}footer{grid-template-columns:1fr}.policy{grid-column:auto};
+  .top {
+    min-height:92px;
+    grid-template-columns:1fr auto;
+    gap:.5rem;
+  }
+  .top>div {
+    grid-column:1/-1;
+    grid-row:1;
+    text-align:left;
+  }
+  .top p {
+    max-width:260px;
+  }
+  .maker {
+    display:none;
+  }
+  .open {
+    grid-column:2;
+    grid-row:1;
+    align-self:start;
+    margin-top:.3rem;
+    font-size:.62rem;
+  }
+  .game {
+    height:calc(100svh - 92px);
+    min-height:560px;
+    max-height:none;
+    padding:6px;
+  }
+  .section {
+    padding-block:clamp(4rem,18vw,5.25rem);
+  }
+  .three,.forms {
+    grid-template-columns:1fr;
+  }
+  .three article {
+    min-height:0;
+  }
+  .three .index {
+    margin-bottom:1.5rem;
+  }
+  .forms article {
+    min-height:0;
+    border-right:0;
+    border-bottom:1px solid #fcecd247;
+  }
+  .sound-section {
+    grid-template-columns:1fr;
+    gap:2.5rem;
+  }
+  .limits li {
+    grid-template-columns:1fr;
+    gap:.35rem;
+    padding-left:1.7rem;
+  }
+  .limits li::before {
+    transform:translateX(-1.7rem);
+  }
+  .numbers th,.numbers td {
+    display:block;
+    text-align:left;
+  }
+  .numbers th {
+    padding-bottom:.2rem;
+  }
+  .numbers td {
+    padding-top:0;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+  .foot-row {
+    grid-template-columns:1fr;
+  }
+  .policy {
+    grid-column:auto;
+  }
 }
 @media(prefers-color-scheme:dark) {
-  :root{--cream:#0f033c;
-  --cream2:#180863;
-  --ink:#fcecd2;
-  --dark:#0a0238;
-  --brown:#eab188;
-  --rule:#fcecd238}.game{background-color:#22357a}.forms-section{background:#0a0238};
+  :root {
+    --cream:#0f033c;
+    --cream2:#180863;
+    --ink:#fcecd2;
+    --dark:#0a0238;
+    --brown:#eab188;
+    --rule:#fcecd238;
+  }
+  .game {
+    background-color:#22357a;
+  }
+  .forms-section {
+    color:#fcecd2;
+    background:#0a0238;
+  }
 }
 @media(prefers-reduced-motion:reduce) {
-  html{scroll-behavior:auto};
+  html {
+    scroll-behavior:auto;
+  }
 }
