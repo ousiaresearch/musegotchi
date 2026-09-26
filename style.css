@@ -57,9 +57,33 @@ code {
   background:var(--gold);
   color:var(--dark);
 }
+/* The skip link is the phone's only way past the game. The third pass gave it 44x44 geometry and left
+   it off-screen, so it existed for keyboards and nothing else — a screenshot at 390px showed the reader a
+   clipped fragment of the game's own footer instead. So: on a narrow screen it is a real, visible,
+   thumb-sized control placed BELOW the game panel, where it cannot cover a game button. Only at desktop
+   widths does it revert to the visually-hidden keyboard affordance. */
 .skip {
-  position:absolute;
-  left:-9999px;
+  display:none;
+}
+@media (max-width:760px){
+  .skip {
+    display:block;
+    position:static;
+    left:auto;
+    top:auto;
+    min-width:44px;
+    min-height:44px;
+    padding:.8rem 1rem;
+    background:var(--ink);
+    color:var(--cream);
+    font:600 .78rem/1 var(--mono);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    text-align:center;
+    border:3px solid var(--ink);
+    border-bottom:0;
+  }
 }
 .skip:focus {
   left:1rem;
@@ -98,6 +122,7 @@ code {
   justify-self:end;
 }
 .game {
+  position:relative;
   height:calc(100svh - 104px);
   min-height:600px;
   max-height:850px;
@@ -106,6 +131,9 @@ code {
   background-image:repeating-conic-gradient(#ffffff38 0 25%,transparent 0 50%);
   background-size:8px 8px;
   border-bottom:3px solid var(--ink);
+}
+.game-jump {
+  display:none;
 }
 iframe {
   display:block;
@@ -186,6 +214,27 @@ iframe {
   padding:2rem 1.5rem;
   border-right:1px solid #fcecd247;
 }
+.form-mark {
+  display:block;
+  width:max-content;
+  margin-bottom:2.5rem;
+  padding:.45rem .6rem;
+  border:1px solid currentColor;
+  color:var(--gold);
+  font:.65rem/1 var(--mono);
+  letter-spacing:.12em;
+}
+.forms article:nth-child(2) .form-mark {
+  border-style:dashed;
+}
+.forms article:nth-child(3) .form-mark {
+  color:var(--cream);
+  background:var(--brown);
+}
+.forms article:nth-child(4) .form-mark {
+  border-radius:999px;
+  color:var(--cream2);
+}
 .forms article:last-child {
   border:0;
 }
@@ -250,6 +299,10 @@ iframe {
 }
 .sound-copy p+p {
   margin-top:1.5rem;
+}
+.room-list {
+  font-family:var(--mono);
+  font-size:.84em;
 }
 .limits {
   list-style:none;
@@ -327,10 +380,27 @@ a:focus-visible {
     font-size:.62rem;
   }
   .game {
+    display:grid;
+    grid-template-rows:minmax(0,1fr) 50px;
     height:calc(100svh - 92px);
     min-height:560px;
     max-height:none;
     padding:6px;
+  }
+  .game-jump {
+    display:flex;
+    min-width:44px;
+    min-height:44px;
+    align-items:center;
+    justify-content:flex-end;
+    gap:.7rem;
+    padding:0 .8rem;
+    color:var(--ink);
+    background:var(--sky);
+    font:.68rem/1 var(--mono);
+    letter-spacing:.08em;
+    text-decoration:none;
+    text-transform:uppercase;
   }
   .section {
     padding-block:clamp(4rem,18vw,5.25rem);

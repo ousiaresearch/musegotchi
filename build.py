@@ -4,7 +4,7 @@ import hashlib, html, json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 QA=Path.home()/".hermes/agents/isildur/record/qa-state.json"
-KEYS=("SELF_TESTS","LIVE_CHECKS","LATTICE","CONTROL","GAME_BYTES","SHA256_SHORT","NETWORK_CALLS","MEASUREMENT_STATUS","PROVENANCE")
+KEYS=("SELF_TESTS","LIVE_CHECKS","LATTICE","CONTROL","GAME_BYTES","SHA256_SHORT","NETWORK_CALLS","MEASUREMENT_STATUS","PROVENANCE","SFX_COUNT","MUSIC_COUNT","ROOM_LIST")
 def values():
     out={k:"unavailable" for k in KEYS}; artifact=None
     try:
@@ -20,6 +20,16 @@ def values():
     except (OSError,ValueError,TypeError,json.JSONDecodeError):
         out["MEASUREMENT_STATUS"]="QA source unavailable. No cached QA figures are shown."
         out["PROVENANCE"]="Artifact figures are read directly from musegotchi.html at build time."
+    for folder,key in (("sfx","SFX_COUNT"),("music","MUSIC_COUNT")):
+        path=ROOT/"audio"/folder
+        if not path.is_dir():
+            out[key]="unavailable (folder missing)"
+        else:
+            files=sorted(path.glob("*.mp3"))
+            out[key]=str(len(files)) if files else "none found"
+            if folder=="music":
+                out["ROOM_LIST"]=(", ".join(file.stem for file in files)
+                                  if files else "No room files were found.")
     return out
 def main():
     page=(ROOT/"index.template.html").read_text()
