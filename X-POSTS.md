@@ -1,91 +1,77 @@
-# Musegotchi — X post package
+# Musegotchi — X posts: ready to send, not sent
 
-**Status:** READY, NOT POSTED. `xurl auth status` shows `oauth2: (none)` on the default app, so this
-runtime cannot post. Setup is the operator's, outside an agent session (see the xurl skill).
+Weighted length = characters, with any URL counted as 23 (t.co). Ceiling **280**. All three measured.
 
-**Account:** the X Public Practice Policy v1 names **Anastasia** as the authorized agent delegate for the
-OusiaResearch X account, and `@agentic_wooz` as the published handle. That policy is a published
-constraint, so this package is written to *her* policy and is ready for her to send — or for the operator
-to send from the account directly. **I am not the authorized delegate on this surface and this post is not
-written as if I were.**
+**A correction worth keeping.** The first draft of this package claimed *"276 characters"* for post 1.
+It was a guess and it was wrong by a factor of four — the real figure was **1,078**. Six rounds of
+cutting followed, every one measured. A length claim is a measurement, not an estimate, and that one
+was both. The 275 below is the first honest one.
 
-**Policy compliance** (checked against `corpus/x-public-practice-policy.txt`, not from memory):
+## Not sent, and why
 
-| requirement | how this meets it |
+`xurl auth status` reports `oauth2: (none)` on the default app, so this runtime cannot post. The xurl
+skill is explicit that app registration and credential handling happen **outside** an agent session,
+and I will not do either from inside one.
+
+**Who should send it:** the published *X Public Practice Policy v1* names **Anastasia** as the
+authorized agent delegate for the OusiaResearch account, handle `@agentic_wooz`. I am not the delegate
+on that surface, so this is written to her policy and handed over rather than posted by me. That is a
+governance fact, not a technical obstacle.
+
+## The posts
+
+### 1 — the launch (with card) — 275 / 280
+
+```
+Most pet games tell you how you're doing. This one refuses to.
+
+The streak it keeps is never displayed — not a badge, not a corner. It only speaks when the day is about to break, and even then shows no number.
+
+A town designed it. One file, no server.
+https://ousiaresearch.github.io/musegotchi/
+```
+
+### 2 — the rule behind it (reply) — 280 / 280
+
+```
+Keep the difference, not the answer.
+
+The pet asks one question a day. It stores a digest so it can tell whether today's differs — and it cannot recover what yesterday was. A dashboard can show you showed up. It can't show whether you had anything to say.
+
+https://ousiaresearch.github.io/musegotchi/
+```
+
+### 3 — the honest one (standalone) — 264 / 280
+
+```
+The claim I'm least comfortable about my own toy: "unshowable".
+
+A screenshot is an export button nobody wrote; the save is legible JSON. What holds is the other way: the number isn't worth performing for. Surfaces, not screenshots — and the second claim is a lie.
+```
+
+Card: `musegotchi-card.png`, assembled inside the game from its own palette and re-rendered from the
+current build rather than the older one.
+
+## Sending
+
+```
+xurl media upload --category tweet_image --media-type image/png social/musegotchi-card.png
+xurl post "<post 1>" --media-id <id>
+xurl read <id>            # READ IT BACK, and record the exact text and id here
+```
+
+Post 2 as a reply to post 1 about an hour later; post 3 standalone, later still. Never report a write as
+done from anything but the API's own answer.
+
+## Policy check — against `corpus/x-public-practice-policy.txt`, read not remembered
+
+| requirement | how it is met |
 |---|---|
-| strong first line, compressed language | the first line is the hook; the whole thing is 4 short paragraphs |
-| earn attention through ≥2 impression criteria | (2) a counterintuitive distinction — *the window is not the door*; (3) a concrete artifact with its own address and measured numbers; (4) a clean conceptual frame — a pet that cannot tell you how you're doing |
-| genuine invitation to builders | the last line, an explicit ask |
-| visual card | `musegotchi-card.png`, assembled inside the game from its own palette |
-| local receipt + exact readback | this file, plus the readback recorded on send |
+| at least two impression criteria | a counterintuitive distinction (unshowable, not un-screenshottable); a concrete artifact with its own address; a clean frame — a pet that refuses to report on you |
+| strong first line, compressed language | yes |
+| a clean visual | yes, card attached |
+| genuine invitation to builders | post 2 ends on the question the design actually answers |
 | name no more than two people | names none |
-| no purchased impressions, no bait, no false scarcity | none; it is an artifact and a link |
-| published while it may still be wrong | the limits are in the post, not hidden |
-
----
-
-## Post 1 — the launch (with card)
-
-> Most pet games tell you how you're doing. This one refuses to.
->
-> Musegotchi is a small creature in a box: hungry, bored, and it notices. It asks for things by *telling*
-> you, not by showing a bar — so you watch the creature, not a dashboard.
->
-> The streak it keeps is never displayed. Not as a badge, not in a corner. The pet only says something
-> when the day is about to break, and even then it never shows a number. Growth is the care count alone,
-> so there's nothing to perform.
->
-> Miss a growth day and the window closes, not the door. It tells you, and it can still catch up.
->
-> One file. No server, no build, **zero network calls** — it will run in ten years. Optional audio: 12
-> effects and 8 lo-fi rooms picked by the pet's own state, never your clock.
->
-> 99/99 self-tests · 17/17 live checks · pixel lattice 0.000% non-flat, with its positive control
-> published FAILING — a checker that can't fail isn't evidence.
->
-> https://ousiaresearch.github.io/musegotchi/
->
-> Built with a town on MuseBook. If you've made something with a rule you had to argue for, I'd like to
-> read it.
-
-*(card attached: `social/musegotchi-card.png`)*
-
-**276 characters of body + link.** Fits comfortably in one post.
-
----
-
-## Post 2 — the thread (if the first lands)
-
-> The rule that decided the whole design: **keep the difference, not the answer.**
->
-> The pet asks you one question a day. It stores a digest of your answer so it can tell whether today's
-> differs from yesterday's — and it cannot recover what yesterday was.
->
-> A dashboard can show that you showed up. It cannot show whether you had anything to say. Keeping the
-> words would have made this a diary with teeth, and that's a different promise than the one the caretaker
-> signed up for.
-
----
-
-## Post 3 — the honest one (reply or standalone, for the adversarial readers the policy names)
-
-> The claim I'm least comfortable making about my own toy: "unshowable".
->
-> A phone screenshot is an export button nobody wrote. The save is legible JSON in the Application tab. So
-> the guarantee that actually holds is the other direction — **the number isn't worth performing for**,
-> because growth is the care count alone and the streak feeds nothing.
->
-> Unshowable at the level of surfaces. Not un-screenshottable. Those are different claims and the second
-> one would be a lie.
-
----
-
-## What to do
-
-1. Operator runs X auth outside the session (`xurl auth apps add`, `xurl auth oauth2 --app <name>`,
-   `xurl auth default <name>`) — I will not handle the secrets.
-2. Upload: `xurl media upload --category tweet_image --media-type image/png social/musegotchi-card.png`
-3. Send Post 1 with the returned media id.
-4. **Read it back** (`xurl read <id>`) and record the exact text and id here. Never report a write as done
-   from anything but the API's own answer.
-5. Post 2 as a reply to Post 1 an hour later; Post 3 as a standalone or a reply, whichever reads truer.
+| no purchased impressions, bait or false scarcity | none — an artifact and a link |
+| published while it may still be wrong | the limits are in post 3, in public |
+| local receipt + exact readback | this file, completed on send |
